@@ -1,3 +1,19 @@
+2018-07-31  Olivier Hainque  <hainque@adacore.com>
+
+	Backport from 1102fd64dbb76784ed46ff81bf905f6c52d296fc
+
+	* gcc.c (handle_spec_function): Accept a soft_matched_part
+	argument, as do_spec_1.  Pass it down to ...
+	(eval_spec_function): Accept a soft_matched_part argument,
+	and pass it down to ...
+	(do_spec_2): Accept a soft_matched_part argument, and pass
+	it down to do_spec_1.
+	(do_spec_1): Pass soft_matched_part to handle_spec_function.
+	(handle_braces): Update call to handle_spec_function.
+	(driver::set_up_specs): Update calls to do_spec_2.
+	(compare_debug_dump_opt_spec_function): Likewise.
+	(compare_debug_self_opt_spec_function): Likewise.
+
 2024-01-15  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from 86fac7ee1688bdec245a43f6d2ab49fb238892e4
