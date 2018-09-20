@@ -1,3 +1,14 @@
+2018-09-20  Allan Sandfeld Jensen  <allan.jensen@qt.io>
+
+	Backport from 0b7fb27b698da38fd13108ecc914613f85f66f9d
+	Fix and document -r option.
+
+	* gcc.c (LINK_COMMAND_SPEC): Handle -r like -nostdlib.
+	(VTABLE_VERIFICATION_SPEC): Likewise.
+	(SANITIZER_EARLY_SPEC): Likewise.
+	(SANITIZER_SPEC): Likewise.
+	* doc/invoke.texi (Link Options): Document -r.
+
 2025-08-20  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from 0f15ff7b511493e9197e6153b794081c1557ba02

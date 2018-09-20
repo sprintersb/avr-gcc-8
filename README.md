@@ -66,6 +66,8 @@ for nonlocal goto / longjmp (fixed in v12.5, v13.4, and v14.3+).
 * [PR121608](https://gcc.gnu.org/PR121608): Don't link with `--relax` when
 linking with `-r` in relocatable links (fixed in v13.5, v14.4, and v15.3+).
 
+* [r264451](https://gcc.gnu.org/r264451): Fix and document `-r` option.
+
 
 ### Extensions
 
