@@ -1,3 +1,15 @@
+2024-01-15  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from 86fac7ee1688bdec245a43f6d2ab49fb238892e4
+
+	PR target/107201
+	* config/avr/avr.h (EXTRA_SPEC_FUNCTIONS): Add no-devlib, avr_no_devlib.
+	* config/avr/driver-avr.cc (avr_no_devlib): New function.
+	(avr_devicespecs_file): Use it to remove -nodevicelib from the
+	options for cores only.
+	* config/avr/avr-arch.h (avr_get_parch): New prototype.
+	* config/avr/avr-devices.cc (avr_get_parch): New function.
+
 2024-02-19  Backport from ae193f9008e02683e27f3c87f3b06f38e103b1d0
 
 	Use reduced version of the PR101188 fix that only handles CLOBBERs.

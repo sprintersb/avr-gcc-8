@@ -507,8 +507,10 @@ typedef struct avr_args
     (LENGTH = avr_adjust_insn_length (INSN, LENGTH))
 
 extern const char *avr_devicespecs_file (int, const char**);
+extern const char *avr_no_devlib (int, const char**);
 
-#define EXTRA_SPEC_FUNCTIONS                                   \
+#define EXTRA_SPEC_FUNCTIONS                            \
+  { "no-devlib", avr_no_devlib },                       \
   { "device-specs-file", avr_devicespecs_file },
 
 /* Driver self specs has lmited functionality w.r.t. '%s' for dynamic specs.
