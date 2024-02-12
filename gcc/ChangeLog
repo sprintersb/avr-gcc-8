@@ -1,3 +1,13 @@
+2024-02-12  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from 525cfe1e9554858366e7811aa9e437357c0f272e
+	Copy gen-avr-mmcu-specs.c from it.
+
+	PR target/112944
+	* config/avr/gen-avr-mmcu-specs.c (print_mcu) [have_flmap]:
+	<*link_rodata_in_ram>: Spec undefs symbol __do_flmap_init
+	when not linked with -mrodata-in-ram.
+
 2024-01-14  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from 48448055fb70862ff3914f8a714ff5c4128e6ced
