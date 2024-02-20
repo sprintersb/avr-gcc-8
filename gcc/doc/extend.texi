@@ -13736,30 +13736,30 @@ or if not a specific built-in is implemented or not. For example, if
 @itemx void __builtin_avr_cli (void)
 @itemx void __builtin_avr_sleep (void)
 @itemx void __builtin_avr_wdr (void)
-@itemx unsigned char __builtin_avr_swap (unsigned char)
-@itemx unsigned int __builtin_avr_fmul (unsigned char, unsigned char)
-@itemx int __builtin_avr_fmuls (char, char)
-@itemx int __builtin_avr_fmulsu (char, unsigned char)
+@itemx uint8_t __builtin_avr_swap (uint8_t)
+@itemx uint16_t __builtin_avr_fmul (uint8_t, uint8_t)
+@itemx int16_t __builtin_avr_fmuls (int8_t, int8_t)
+@itemx int16_t __builtin_avr_fmulsu (int8_t, uint8_t)
 These built-in functions map to the respective machine
 instruction, i.e.@: @code{nop}, @code{sei}, @code{cli}, @code{sleep},
 @code{wdr}, @code{swap}, @code{fmul}, @code{fmuls}
 resp. @code{fmulsu}. The three @code{fmul*} built-ins are implemented
 as library call if no hardware multiplier is available.
 
-@item void __builtin_avr_delay_cycles (unsigned long ticks)
+@item void __builtin_avr_delay_cycles (uint32_t @var{ticks})
 Delay execution for @var{ticks} cycles. Note that this
 built-in does not take into account the effect of interrupts that
 might increase delay time. @var{ticks} must be a compile-time
 integer constant; delays with a variable number of cycles are not supported.
 
-@item char __builtin_avr_flash_segment (const __memx void*)
+@item int8_t __builtin_avr_flash_segment (const __memx void*)
 This built-in takes a byte address to the 24-bit
 @ref{AVR Named Address Spaces,address space} @code{__memx} and returns
 the number of the flash segment (the 64 KiB chunk) where the address
 points to.  Counting starts at @code{0}.
 If the address does not point to flash memory, return @code{-1}.
 
-@item uint8_t __builtin_avr_insert_bits (uint32_t map, uint8_t bits, uint8_t val)
+@item uint8_t __builtin_avr_insert_bits (uint32_t @var{map}, uint8_t @var{bits}, uint8_t @var{val})
 Insert bits from @var{bits} into @var{val} and return the resulting
 value. The nibbles of @var{map} determine how the insertion is
 performed: Let @var{X} be the @var{n}-th nibble of @var{map}
@@ -13804,7 +13804,7 @@ __builtin_avr_insert_bits (0xffff3210, bits, val)
 __builtin_avr_insert_bits (0x01234567, bits, 0)
 @end smallexample
 
-@item void __builtin_avr_nops (unsigned count)
+@item void __builtin_avr_nops (uint16_t @var{count})
 Insert @var{count} @code{NOP} instructions.
 The number of instructions must be a compile-time integer constant.
 

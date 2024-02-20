@@ -1,5 +1,16 @@
 2024-07-30  Georg-Johann Lay  <avr@gjlay.de>
 
+	Backport from 4238100cdd5f5eba10e71adbf60054d29a9a4480
+	AVR: Use types of exact size and signedness in built-ins.
+
+	* config/avr/builtins.def: Use function prototypes of given size
+	and signedness.
+	* config/avr/avr.c (avr_init_builtins): Adjust types required
+	by builtins.def.
+	* doc/extend.texi (AVR Built-in Functions): Adjust accordingly.
+
+2024-07-30  Georg-Johann Lay  <avr@gjlay.de>
+
 	Backport from 0f1de0c4ce6eb237128d8f6439c2434aded1f51a
 	AVR target/116056 - Support function attributes signal(n),
 	interrupt(n) and noblock.
