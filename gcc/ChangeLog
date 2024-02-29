@@ -1,3 +1,13 @@
+2024-02-29  Georg-Johann Lay  <avr@gjlay.de>
+
+	PR ipa/92606: Inter-procedural analysis optimizes data across
+	address-spaces and PROGMEM.  As of v14, the PROGMEM part is
+	still not fixed.  Just disable respective optimization.
+
+	* config/avr/avr.c (avr_option_override): Set
+	flag_ipa_icf_variables = 0.
+	* testsuite/gcc.target/avr/torture/pr92606.c: New test.
+
 2024-02-12  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from 525cfe1e9554858366e7811aa9e437357c0f272e

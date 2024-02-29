@@ -764,6 +764,11 @@ avr_option_override (void)
       flag_omit_frame_pointer = 0;
     }
 
+  /* PR ipa/92606: Inter-procedural analysis optimizes data across
+     address-spaces and PROGMEM.  As of v14, the PROGMEM part is
+     still not fixed.  Just disable respective optimization.  */
+  flag_ipa_icf_variables = 0;
+
   if (flag_pic == 1)
     warning (OPT_fpic, "-fpic is not supported");
   if (flag_pic == 2)
