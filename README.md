@@ -20,6 +20,11 @@ tries to address.
 
 ### Bugs Fixed
 
+* [PR92606](https://gcc.gnu.org/PR92606): Inter-procedural analysis
+optimizes data across address-spaces and PROGMEM.
+This is fixed in v14 for address-spaces but still persists
+for PROGMEM.  The local fix just disables the bogus IPA optimization.
+
 * [PR101188](https://gcc.gnu.org/PR101188): A rare wrong-code bug that
 can be tracket back to GCC v5 and beyond.  It's fixed in v14 but
 not in v13.2, and it is unclear if the fix will be back-ported to the
