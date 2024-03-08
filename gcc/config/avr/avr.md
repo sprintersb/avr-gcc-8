@@ -1247,6 +1247,25 @@
   [(set_attr "length" "2")
    (set_attr "cc" "set_czn")])
 
+
+;; Occurs when computing offsets into 16-bit arrays.
+;; Saves up to 2 instructions.
+(define_insn "*addhi3_zero_extend.ashift1"
+  [(set (match_operand:HI 0 "register_operand"                                    "=r")
+        (plus:HI (ashift:HI (zero_extend:HI (match_operand:QI 1 "register_operand" "r"))
+                            (const_int 1))
+                 (match_operand:HI 2 "register_operand"                            "0")))]
+  ""
+  {
+    return reg_overlap_mentioned_p (operands[1], operands[0])
+      ? "mov __tmp_reg__,%1\;add %A0,__tmp_reg__\;adc %B0,__zero_reg__\;add %A0,__tmp_reg__\;adc %B0,__zero_reg__"
+      : "add %A0,%1\;adc %B0,__zero_reg__\;add %A0,%1\;adc %B0,__zero_reg__";
+  }
+  [(set (attr "length")
+        (symbol_ref ("4 + reg_overlap_mentioned_p (operands[1], operands[0])")))
+   (set_attr "cc" "clobber")])
+
+
 (define_insn "*usum_widenqihi3"
   [(set (match_operand:HI 0 "register_operand"                          "=r")
         (plus:HI (zero_extend:HI (match_operand:QI 1 "register_operand"  "0"))

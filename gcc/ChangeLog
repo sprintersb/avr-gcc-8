@@ -1,3 +1,16 @@
+2024-03-08  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport tweak from 40209cb15a3f2af8233ee887dc960992f358ad86
+	AVR: Add an insn combine pattern for offset computation.
+
+	Computing  uint16_t += 2 * uint8_t  can occur when an offset
+	into a 16-bit array is computed.  Without this pattern is costs
+	six instructions: A move (1), a zero-extend (1), a shift (2) and
+	an addition (2).  With this pattern it costs 4.
+
+        * config/avr/avr.md (*addhi3_zero_extend.ashift1): New pattern.
+        * config/avr/avr.cc (avr_rtx_costs_1) [PLUS]: Compute its cost.
+
 2024-02-29  Georg-Johann Lay  <avr@gjlay.de>
 
 	PR ipa/92606: Inter-procedural analysis optimizes data across
