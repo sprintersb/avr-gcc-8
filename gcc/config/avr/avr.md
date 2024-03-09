@@ -1235,7 +1235,8 @@
       ? "mov __tmp_reg__,%1\;add %A0,%1\;adc %B0,__zero_reg__\;sbrc __tmp_reg__,7\;dec %B0"
       : "add %A0,%1\;adc %B0,__zero_reg__\;sbrc %1,7\;dec %B0";
   }
-  [(set_attr "length" "5")
+  [(set (attr "length")
+        (symbol_ref ("4 + reg_overlap_mentioned_p (operands[0], operands[1])")))
    (set_attr "cc" "clobber")])
 
 (define_insn "*addhi3_zero_extend.const"
@@ -1265,10 +1266,9 @@
         (symbol_ref ("4 + reg_overlap_mentioned_p (operands[1], operands[0])")))
    (set_attr "cc" "clobber")])
 
-
 (define_insn "*usum_widenqihi3"
   [(set (match_operand:HI 0 "register_operand"                          "=r")
-        (plus:HI (zero_extend:HI (match_operand:QI 1 "register_operand"  "0"))
+        (plus:HI (zero_extend:HI (match_operand:QI 1 "register_operand" "%0"))
                  (zero_extend:HI (match_operand:QI 2 "register_operand"  "r"))))]
   ""
   "add %A0,%2\;clr %B0\;rol %B0"
@@ -1526,7 +1526,8 @@
       ? "mov __tmp_reg__,%2\;sub %A0,%2\;sbc %B0,__zero_reg__\;sbrc __tmp_reg__,7\;inc %B0"
       : "sub %A0,%2\;sbc %B0,__zero_reg__\;sbrc %2,7\;inc %B0";
   }
-  [(set_attr "length" "5")
+  [(set (attr "length")
+        (symbol_ref ("4 + reg_overlap_mentioned_p (operands[0], operands[2])")))
    (set_attr "cc" "clobber")])
 
 ;; "subsi3"

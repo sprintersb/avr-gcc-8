@@ -1,3 +1,16 @@
+2024-03-09  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport tweak from e8cc1f956b75a6bf74c5f5262ddced9451dcccac
+	AVR: Add cost computation for some insn combine patterns.
+
+	* config/avr/avr.c (avr_rtx_costs_1) [PLUS]: Determine cost for
+	usum_widenqihi and add_zero_extend1.
+	[MINUS]: Determine costs for udiff_widenqihi, sub+zero_extend,
+	sub+sign_extend.
+	* config/avr/avr.md (*addhi3.sign_extend1, *subhi3.sign_extend2):
+	Compute exact insn lengths.
+	(*usum_widenqihi3): Allow input operands to commute.
+
 2024-03-08  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport tweak from 40209cb15a3f2af8233ee887dc960992f358ad86
