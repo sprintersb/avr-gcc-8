@@ -1,3 +1,21 @@
+
+2024-04-14  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport tweak from 9361f19e081294b04e16ac2f6056b3b910f27ff4
+	avr.md - Tweak xor insn constraints.
+
+	xor insn can handle some more values without the requirement of a
+	scratch register.  This patch adds a new constraint alternative for
+	such values.  The output function avr_out_bitop already handles
+	these cases, so no change is needed there.
+
+        * config/avr/constraints.md (CX2, CX3, CX4): New constraints.
+        * config/avr/avr-protos.h (avr_xor_noclobber_dconst): New proto.
+        * config/avr/avr.cc (avr_xor_noclobber_dconst): New function.
+        * config/avr/avr.md (xorhi3): Add "d,0,CX2,X" alternative.
+        (xorpsi3): Add "d,0,CX3,X" alternative.
+        (xorsi3): Add "d,0,CX4,X" alternative.
+
 2024-03-09  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport tweak from e8cc1f956b75a6bf74c5f5262ddced9451dcccac

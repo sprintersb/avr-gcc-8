@@ -3309,10 +3309,10 @@
    (set_attr "cc" "set_zn")])
 
 (define_insn "xorhi3"
-  [(set (match_operand:HI 0 "register_operand"       "=??r,r  ,r")
-        (xor:HI (match_operand:HI 1 "register_operand" "%0,0  ,0")
-                (match_operand:HI 2 "nonmemory_operand" "r,Cx2,n")))
-   (clobber (match_scratch:QI 3                        "=X,X  ,&d"))]
+  [(set (match_operand:HI 0 "register_operand"       "=??r,r  ,d  ,r")
+        (xor:HI (match_operand:HI 1 "register_operand" "%0,0  ,0  ,0")
+                (match_operand:HI 2 "nonmemory_operand" "r,Cx2,CX2,n")))
+   (clobber (match_scratch:QI 3                        "=X,X  ,X  ,&d"))]
   ""
   {
     if (which_alternative == 0)
@@ -3320,15 +3320,15 @@
 
     return avr_out_bitop (insn, operands, NULL);
   }
-  [(set_attr "length" "2,2,4")
-   (set_attr "adjust_len" "*,out_bitop,out_bitop")
-   (set_attr "cc" "set_n,clobber,clobber")])
+  [(set_attr "length" "2,2,4,4")
+   (set_attr "adjust_len" "*,out_bitop,out_bitop,out_bitop")
+   (set_attr "cc" "set_n,clobber,clobber,clobber")])
 
 (define_insn "xorpsi3"
-  [(set (match_operand:PSI 0 "register_operand"        "=??r,r  ,r")
-        (xor:PSI (match_operand:PSI 1 "register_operand" "%0,0  ,0")
-                 (match_operand:PSI 2 "nonmemory_operand" "r,Cx3,n")))
-   (clobber (match_scratch:QI 3                          "=X,X  ,&d"))]
+  [(set (match_operand:PSI 0 "register_operand"        "=??r,r  ,d  ,r")
+        (xor:PSI (match_operand:PSI 1 "register_operand" "%0,0  ,0  ,0")
+                 (match_operand:PSI 2 "nonmemory_operand" "r,Cx3,CX3,n")))
+   (clobber (match_scratch:QI 3                          "=X,X  ,X  ,&d"))]
   ""
   {
     if (which_alternative == 0)
@@ -3338,15 +3338,15 @@
 
     return avr_out_bitop (insn, operands, NULL);
   }
-  [(set_attr "length" "3,6,6")
-   (set_attr "adjust_len" "*,out_bitop,out_bitop")
-   (set_attr "cc" "set_n,clobber,clobber")])
+  [(set_attr "length" "3,6,6,6")
+   (set_attr "adjust_len" "*,out_bitop,out_bitop,out_bitop")
+   (set_attr "cc" "set_n,clobber,clobber,clobber")])
 
 (define_insn "xorsi3"
-  [(set (match_operand:SI 0 "register_operand"       "=??r,r  ,r")
-        (xor:SI (match_operand:SI 1 "register_operand" "%0,0  ,0")
-                (match_operand:SI 2 "nonmemory_operand" "r,Cx4,n")))
-   (clobber (match_scratch:QI 3                        "=X,X  ,&d"))]
+  [(set (match_operand:SI 0 "register_operand"       "=??r,r  ,d  ,r")
+        (xor:SI (match_operand:SI 1 "register_operand" "%0,0  ,0  ,0")
+                (match_operand:SI 2 "nonmemory_operand" "r,Cx4,CX4,n")))
+   (clobber (match_scratch:QI 3                        "=X,X  ,X  ,&d"))]
   ""
   {
     if (which_alternative == 0)
@@ -3357,9 +3357,9 @@
 
     return avr_out_bitop (insn, operands, NULL);
   }
-  [(set_attr "length" "4,8,8")
-   (set_attr "adjust_len" "*,out_bitop,out_bitop")
-   (set_attr "cc" "set_n,clobber,clobber")])
+  [(set_attr "length" "4,8,8,8")
+   (set_attr "adjust_len" "*,out_bitop,out_bitop,out_bitop")
+   (set_attr "cc" "set_n,clobber,clobber,clobber")])
 
 
 (define_split
