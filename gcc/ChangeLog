@@ -1,6 +1,15 @@
 2024-04-15  Georg-Johann Lay  <avr@gjlay.de>
 
-	Backport tweak from 65b7d1862e11784a0ce67ab758e06dd8aa65b18
+	Backport from 6e11bb451babfe47bb6b7ad42335019f2771a32e
+	AVR: Add 8 more avrxmega3 MCUs.
+
+        * config/avr/avr-mcus.def: Add: avr16du14, avr16du20, avr16du28,
+        avr16du32, avr32du14, avr32du20, avr32du28,  avr32du32.
+        * doc/avr-mmcu.texi: Rebuild.
+
+2024-04-15  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from 65b7d1862e11784a0ce67ab758e06dd8aa65b18
 	AVR: Adjust message for SIGNAL and INTERRUPT usage.
 
         * config/avr/avr.c (avr_set_current_function): Adjust diagnostic
