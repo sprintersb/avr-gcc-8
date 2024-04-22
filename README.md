@@ -46,3 +46,6 @@ When Binutils support [PR31124](https://sourceware.org/PR31124), then
 read-only data on AVR64* and AVR128* devices is located in program memory.
 For a detailed description with further reading, see the
 [GCC v14 Release Notes](https://gcc.gnu.org/gcc-14/changes.html#avr).
+
+* In C++ compilations, don't implicitly wrap headers found per
+`-isystem` in `extern "C" { ... }`.

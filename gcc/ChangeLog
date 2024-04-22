@@ -1,3 +1,10 @@
+2024-04-22  Georg-Johann Lay  <avr@gjlay.de>
+
+	Don't implicitly wrap headers found per -isystem in
+	extern "C" { ... } in C++ compilations.
+
+	* config/avr/avr.h (NO_IMPLICIT_EXTERN_C): Define.
+
 2024-04-21  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from a44d16efa7a508f8b8f303417d0714c39f159725

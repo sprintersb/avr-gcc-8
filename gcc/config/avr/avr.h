@@ -614,3 +614,6 @@ extern int avr_accumulate_outgoing_args (void);
 #define SYMBOL_FLAG_IO_LOW	(SYMBOL_FLAG_MACH_DEP << 4)
 #define SYMBOL_FLAG_IO		(SYMBOL_FLAG_MACH_DEP << 5)
 #define SYMBOL_FLAG_ADDRESS	(SYMBOL_FLAG_MACH_DEP << 6)
+
+/* Don't implicitly wrap headers found per -isystem in extern "C" { ... } */
+#define NO_IMPLICIT_EXTERN_C
