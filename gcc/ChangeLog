@@ -1,3 +1,13 @@
+2024-05-09  Wolfgang Hospital  <avr@gjlay.de>
+
+	Backport from 8d2c93fcfe1afc5291bbbe162c3b7ad5764f6d8d
+	target/114835 - Tweak popcountqi2
+
+libgcc/
+        PR target/114835
+        * config/avr/lib1funcs.S (__popcountqi2): Use code that
+        is one instruction shorter / faster.
+
 2024-05-09  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from c8f4bbb824fafecf021a802324cd79e64b03b947
