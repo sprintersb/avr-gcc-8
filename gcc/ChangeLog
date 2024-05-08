@@ -1,3 +1,18 @@
+2024-05-10  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from af64af69c3cc85dbe00c520651a54850bf5cadc1
+	target/114981 - Tweak __builtin_powif / __powisf2
+	Implement __powisf2 in assembly.
+
+libgcc/
+        PR target/114981
+        * config/avr/t-avr (LIB2FUNCS_EXCLUDE): Add _powisf2.
+        (LIB1ASMFUNCS) [!avrtiny]: Add _powif.
+        * config/avr/lib1funcs.S (mov4): New .macro.
+        (L_powif, __powisf2) [!avrtiny]: New module and function.
+gcc/testsuite/
+        * gcc.target/avr/pr114981-powif.c: New test.
+
 2024-05-09  Wolfgang Hospital  <avr@gjlay.de>
 
 	Backport from 8d2c93fcfe1afc5291bbbe162c3b7ad5764f6d8d
