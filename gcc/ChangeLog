@@ -1,3 +1,19 @@
+2024-05-09  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from c8f4bbb824fafecf021a802324cd79e64b03b947
+	Backport from 41bc359c322d45ec1adfb51f7a45c7ef02ce6ca9
+	Add combine-pattern for __parityqi2.
+	Add combine-pattern for __popcountqi2.
+
+	PR target/114975
+        * config/avr/avr.md: Add combine pattern for
+        8-bit popcount and 8-bit parity detection.
+
+testsuite/
+	PR target/114975
+        * gcc.target/avr/pr114975-popcount.c: New test.
+        * gcc.target/avr/pr114975-parity.c: New test.
+
 2024-04-22  Georg-Johann Lay  <avr@gjlay.de>
 
 	Don't implicitly wrap headers found per -isystem in
