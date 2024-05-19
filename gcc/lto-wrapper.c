@@ -1477,7 +1477,12 @@ cont1:
 	  || decoded_options[i].opt_index == OPT_fuse_ld_gold)
 	append_linker_options (&argv_obstack, &decoded_options[i-1], 2);
       /* Retain all target options, this preserves -m32 for example.  */
-      if (cl_options[decoded_options[i].opt_index].flags & CL_TARGET)
+      if ((cl_options[decoded_options[i].opt_index].flags & CL_TARGET)
+	  // ...except -mrelax which passes --relax to the linker, which
+	  // is incompatible with -r added below.  Hence only add this
+	  // target option when it is not -mrelax.
+	  && 0 != strcmp (cl_options[decoded_options[i].opt_index].opt_text,
+			  "-mrelax"))
 	append_linker_options (&argv_obstack, &decoded_options[i-1], 2);
       /* Recognize -g0.  */
       if (decoded_options[i].opt_index == OPT_g

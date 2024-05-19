@@ -1,3 +1,12 @@
+2024-05-19  Georg-Johann Lay  <avr@gjlay.de>
+
+	Options  -g -mrelax -flto  did not work together and
+	failed with an "--relax and -r may not be used together"
+	error from the linker.  Filter-out -mrelax from the options
+	that lto-wrapper is using for a partial link with -r.
+
+	* lto-wrapper (run_gcc): Don't add -mrelax when -r is present.
+
 2024-05-10  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from af64af69c3cc85dbe00c520651a54850bf5cadc1

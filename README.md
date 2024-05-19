@@ -33,6 +33,9 @@ v13 branch.
 * [PR107201](https://gcc.gnu.org/PR107201): The `-nodevicelib` option
 did not work as expected for devices which start with "AVR", like AVR32DA32.
 
+* The options `-g -mrelax -flto` did not work together and failed with
+an `--relax and -r may not be used together` error from the linker.
+
 ### Extensions
 
 * Support all devices that avr-gcc v14 supports.
