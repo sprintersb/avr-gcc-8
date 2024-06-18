@@ -52,3 +52,18 @@ For a detailed description with further reading, see the
 
 * In C++ compilations, don't implicitly wrap headers found per
 `-isystem` in `extern "C" { ... }`.
+
+### Problems Avoided
+
+The GCC v8 release avoids some problems of more recent compiler versions,
+namely the following performance regressions from the register allocator:
+
+* [PR110093](https://gcc.gnu.org/PR110093): Move frenzy leading to code bloat.
+
+* [PR114243](https://gcc.gnu.org/PR114243): `-fsplit-wide-types` bloats
+`float` code by more than 50%.
+As a work-around, `-fno-split-wide-types` can be used,
+though that option cannot be recommended in general.
+
+* [PR90706](https://gcc.gnu.org/PR90706): Useless code generated for
+stack / register operations (partially fixed in v12.3+).
