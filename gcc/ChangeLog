@@ -1,3 +1,19 @@
+2024-07-01  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from 3d23abd3dd9c8c226ea302203b214b346f4fe8d7
+	target/88236, target/115726 - Fix __memx code generation.
+
+        PR target/88236
+        PR target/115726
+
+        * config/avr/avr.md (mov<mode>) [avr_mem_memx_p]: Expand in such a
+        way that the destination does not overlap with any hard register
+        clobbered / used by xload8qi_A resp. xload<mode>_A.
+        * config/avr/avr.cc (avr_out_xload): Avoid early-clobber
+        situation for Z by executing just one load when the output register
+        overlaps with Z.
+        * testsuite/gcc.target/avr/torture/pr88236-pr115726.c: New test.
+
 2024-05-19  Georg-Johann Lay  <avr@gjlay.de>
 
 	Options  -g -mrelax -flto  did not work together and

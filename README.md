@@ -36,6 +36,10 @@ did not work as expected for devices which start with "AVR", like AVR32DA32.
 * The options `-g -mrelax -flto` did not work together and failed with
 an `--relax and -r may not be used together` error from the linker.
 
+* [PR88236](https://gcc.gnu.org/PR88236),
+[PR115726](https://gcc.gnu.org/PR115726): Fixed code for reading from
+address-space __memx (fixed in v12.5, v13.4 and v14.2+).
+
 ### Extensions
 
 * Support all devices that avr-gcc v14 supports.
