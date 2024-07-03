@@ -40,6 +40,10 @@ an `--relax and -r may not be used together` error from the linker.
 [PR115726](https://gcc.gnu.org/PR115726): Fixed code for reading from
 address-space __memx (fixed in v12.5, v13.4 and v14.2+).
 
+* [PR98762](https://gcc.gnu.org/PR98762): Fixed a wrong code bug on
+Reduced Tiny (fixed in v12.5, v13.4 and v14.2+).
+
+
 ### Extensions
 
 * Support all devices that avr-gcc v14 supports.

@@ -1,3 +1,13 @@
+2024-07-03  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from e9fb6efa1cf542353fd44ddcbb5136344c463fd0
+	target/98762 - Handle partial clobber in movqi output.
+
+        PR target/98762
+        * config/avr/avr.cc (avr_out_movqi_r_mr_reg_disp_tiny): Properly
+        restore the base register when it is partially clobbered.
+        * testsuite/gcc.target/avr/torture/pr98762.c: New test.
+
 2024-07-01  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from 3d23abd3dd9c8c226ea302203b214b346f4fe8d7
