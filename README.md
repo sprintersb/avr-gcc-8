@@ -37,6 +37,7 @@ did not work as expected for devices which start with "AVR", like AVR32DA32.
 an `--relax and -r may not be used together` error from the linker.
 
 * [PR88236](https://gcc.gnu.org/PR88236),
+[PR87376](https://gcc.gnu.org/PR87376),
 [PR115726](https://gcc.gnu.org/PR115726): Fixed code for reading from
 address-space __memx (fixed in v12.5, v13.4 and v14.2+).
 

@@ -62,8 +62,8 @@
 ;; "addta3" "adduta3"
 (define_expand "add<mode>3"
   [(parallel [(match_operand:ALL8 0 "general_operand" "")
-              (match_operand:ALL8 1 "general_operand" "")
-              (match_operand:ALL8 2 "general_operand" "")])]
+              (match_operand:ALL8 1 "nop_general_operand")
+              (match_operand:ALL8 2 "nop_general_operand")])]
   "avr_have_dimode"
   {
     rtx acc_a = gen_rtx_REG (<MODE>mode, ACC_A);
@@ -140,8 +140,8 @@
 ;; "subta3" "subuta3"
 (define_expand "sub<mode>3"
   [(parallel [(match_operand:ALL8 0 "general_operand" "")
-              (match_operand:ALL8 1 "general_operand" "")
-              (match_operand:ALL8 2 "general_operand" "")])]
+              (match_operand:ALL8 1 "nop_general_operand")
+              (match_operand:ALL8 2 "nop_general_operand")])]
   "avr_have_dimode"
   {
     rtx acc_a = gen_rtx_REG (<MODE>mode, ACC_A);
@@ -197,8 +197,8 @@
 
 (define_expand "<code_stdname><mode>3"
   [(set (match_operand:ALL8S 0 "general_operand" "")
-        (ss_addsub:ALL8S (match_operand:ALL8S 1 "general_operand" "")
-                         (match_operand:ALL8S 2 "general_operand" "")))]
+        (ss_addsub:ALL8S (match_operand:ALL8S 1 "nop_general_operand")
+                         (match_operand:ALL8S 2 "nop_general_operand")))]
   "avr_have_dimode"
   {
     rtx acc_a = gen_rtx_REG (<MODE>mode, ACC_A);
@@ -246,8 +246,8 @@
 
 (define_expand "<code_stdname><mode>3"
   [(set (match_operand:ALL8U 0 "general_operand" "")
-        (us_addsub:ALL8U (match_operand:ALL8U 1 "general_operand" "")
-                         (match_operand:ALL8U 2 "general_operand" "")))]
+        (us_addsub:ALL8U (match_operand:ALL8U 1 "nop_general_operand")
+                         (match_operand:ALL8U 2 "nop_general_operand")))]
   "avr_have_dimode"
   {
     rtx acc_a = gen_rtx_REG (<MODE>mode, ACC_A);
@@ -295,7 +295,7 @@
 
 (define_expand "negdi2"
   [(parallel [(match_operand:DI 0 "general_operand" "")
-              (match_operand:DI 1 "general_operand" "")])]
+              (match_operand:DI 1 "nop_general_operand")])]
   "avr_have_dimode"
   {
     rtx acc_a = gen_rtx_REG (DImode, ACC_A);
@@ -423,8 +423,8 @@
 ;; "ashluta3"  "ashruta3"  "lshruta3"  "rotluta3"
 (define_expand "<code_stdname><mode>3"
   [(parallel [(match_operand:ALL8 0 "general_operand" "")
-              (di_shifts:ALL8 (match_operand:ALL8 1 "general_operand" "")
-                              (match_operand:QI 2 "general_operand" ""))])]
+              (di_shifts:ALL8 (match_operand:ALL8 1 "nop_general_operand")
+                              (match_operand:QI 2 "nop_general_operand"))])]
   "avr_have_dimode"
   {
     rtx acc_a = gen_rtx_REG (<MODE>mode, ACC_A);
@@ -457,8 +457,8 @@
 ;; "mulsidi3"
 (define_expand "<extend_u>mulsidi3"
   [(parallel [(match_operand:DI 0 "register_operand" "")
-              (match_operand:SI 1 "general_operand" "")
-              (match_operand:SI 2 "general_operand" "")
+              (match_operand:SI 1 "nop_general_operand")
+              (match_operand:SI 2 "nop_general_operand")
               ;; Just to mention the iterator 
               (clobber (any_extend:SI (match_dup 1)))])]
   "avr_have_dimode

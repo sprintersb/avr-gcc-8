@@ -1,3 +1,13 @@
+2024-07-05  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from 23a0935262d6817097406578b1c70563f424804b
+	AVR: target/87376 - Use nop_general_operand for DImode inputs.
+
+	PR target/87376
+	* config/avr/avr-dimode.md: Use "nop_general_operand" instead
+	of "general_operand" as predicate for all input operands.
+	* testsuite/gcc.target/avr/torture/pr87376.c: New test.
+
 2024-07-03  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from e9fb6efa1cf542353fd44ddcbb5136344c463fd0
