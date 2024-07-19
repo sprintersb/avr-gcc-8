@@ -1,5 +1,24 @@
 2024-07-30  Georg-Johann Lay  <avr@gjlay.de>
 
+	Backport from 9116490c1b03dac18f10e42df03731a3aed0b4e9
+	AVR: Support new built-in function __builtin_avr_mask1.
+
+	* config/avr/builtins.def (MASK1): New DEF_BUILTIN.
+	* config/avr/avr.c (avr_rtx_costs_1): Handle rtx costs for
+	expressions like __builtin_avr_mask1.
+	(avr_init_builtins) <uintQI_ftype_uintQI_uintQI>: New tree type.
+	(avr_expand_builtin) [AVR_BUILTIN_MASK1]: Diagnose unexpected forms.
+	(avr_fold_builtin) [AVR_BUILTIN_MASK1]: Handle case.
+	* config/avr/avr.md (gen_mask1): New expand helper.
+	(mask1_0x01_split, mask1_0x80_split, mask1_0xfe_split): New
+	insn-and-split.
+	(*mask1_0x01, *mask1_0x80, *mask1_0xfe): New insns.
+	* doc/extend.texi (AVR Built-in Functions) <__builtin_avr_mask1>:
+	Document new built-in function.
+	* testsuite/gcc.target/avr/torture/builtin-mask1.c: New test.
+
+2024-07-30  Georg-Johann Lay  <avr@gjlay.de>
+
 	Backport from 4238100cdd5f5eba10e71adbf60054d29a9a4480
 	AVR: Use types of exact size and signedness in built-ins.
 

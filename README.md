@@ -63,6 +63,9 @@ For a detailed description with further reading, see the
 `signal(n)`, `interrupt(n)` and `noblock`, see also the
 [GCC v15 Release Notes](https://gcc.gnu.org/gcc-15/changes.html#avr).
 
+* Support built-in function `__builtin_avr_mask1`, see the
+[GCC v15 Release Notes](https://gcc.gnu.org/gcc-15/changes.html#avr).
+
 * In C++ compilations, don't implicitly wrap headers found per
 `-isystem` in `extern "C" { ... }`.
 
