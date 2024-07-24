@@ -59,6 +59,10 @@ read-only data on AVR64* and AVR128* devices is located in program memory.
 For a detailed description with further reading, see the
 [GCC v14 Release Notes](https://gcc.gnu.org/gcc-14/changes.html#avr).
 
+* [PR116056](https://gcc.gnu.org/PR116056): Support function attribues
+`signal(n)`, `interrupt(n)` and `noblock`, see also the
+[GCC v15 Release Notes](https://gcc.gnu.org/gcc-15/changes.html#avr).
+
 * In C++ compilations, don't implicitly wrap headers found per
 `-isystem` in `extern "C" { ... }`.
 
