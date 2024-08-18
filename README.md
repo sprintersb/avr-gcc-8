@@ -44,6 +44,10 @@ address-space __memx (fixed in v12.5, v13.4 and v14.2+).
 * [PR98762](https://gcc.gnu.org/PR98762): Fixed a wrong code bug on
 Reduced Tiny (fixed in v12.5, v13.4 and v14.2+).
 
+* [PR116407](https://gcc.gnu.org/PR116407): Fixed a
+"relocation truncated to fit" error from the linker
+(fixed in v13.4, and v14.3+).
+
 
 ### Extensions
 

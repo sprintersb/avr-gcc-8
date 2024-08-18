@@ -1,3 +1,19 @@
+2024-08-18  Georg-Johann Lay  <avr@gjlay.de>
+	Backport from 58c8882ff5ba249ef4cfc99f3c3f8ada8810f75a
+	AVR: target/116407 - Fix linker error "relocation truncated to fit".
+
+	Some text peepholes output extra instructions prior to a branch
+	instruction and that increase the jump offset of backward branches.
+
+        PR target/116407
+        * config/avr/avr-protos.h (avr_jump_mode): Add an int argument.
+        * config/avr/avr.c (avr_jump_mode): Add an int argument to increase
+        the computed jump offset of backwards branches.
+        * config/avr/avr.md (*dec-and-branchhi!=-1, *dec-and-branchsi!=-1):
+        Increase the jump offset used by avr_jump_mode() as needed.
+        * testsuite/gcc.target/avr/torture/pr116407-2.c: New test.
+        * testsuite/gcc.target/avr/torture/pr116407-4.c: New test.
+
 2024-07-30  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from 9116490c1b03dac18f10e42df03731a3aed0b4e9
