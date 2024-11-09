@@ -1,3 +1,16 @@
+2024-11-17  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from 02d7370966ac19af966b827b4c984e8a38fdf728
+	AVR: target/117500 - Use output_operand_lossage in avr_print_operand.
+
+	Use a proper error message rather than running into an
+	"internal compiler error" when an inline assembly `%i` operand
+	get's an address that's not a suitable I/O location.
+
+	PR target/117500
+        * config/avr/avr.cc (avr_print_operand) [code = 'i']: Use
+        output_operand_lossage on bad operands instead of fatal_insn.
+
 2024-08-18  Georg-Johann Lay  <avr@gjlay.de>
 	Backport from 58c8882ff5ba249ef4cfc99f3c3f8ada8810f75a
 	AVR: target/116407 - Fix linker error "relocation truncated to fit".

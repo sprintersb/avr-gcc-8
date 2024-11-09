@@ -48,6 +48,11 @@ Reduced Tiny (fixed in v12.5, v13.4 and v14.2+).
 "relocation truncated to fit" error from the linker
 (fixed in v13.4, and v14.3+).
 
+* [PR117500](https://gcc.gnu.org/PR117500): Use a proper error
+message rather than running into an "internal compiler error"
+when an inline assembly `%i` operand gets an address that's not
+a suitable I/O location (fixed in v13.4, and v14.3+).
+
 
 ### Extensions
 
