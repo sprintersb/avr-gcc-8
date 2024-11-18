@@ -1,3 +1,12 @@
+2024-11-19  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from bba27015f2815a8fa6fae46a29a70644e868341c
+	AVR: target/117659 - Fix wrong code for u24 << 16.
+
+	PR target/117659
+	* config/avr/avr.c (avr_out_ashlpsi3) [case 16]: Use %A1 as
+	input (instead of bogus %A0).
+
 2024-11-17  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from 02d7370966ac19af966b827b4c984e8a38fdf728
@@ -8,7 +17,7 @@
 	get's an address that's not a suitable I/O location.
 
 	PR target/117500
-        * config/avr/avr.cc (avr_print_operand) [code = 'i']: Use
+        * config/avr/avr.c (avr_print_operand) [code = 'i']: Use
         output_operand_lossage on bad operands instead of fatal_insn.
 
 2024-08-18  Georg-Johann Lay  <avr@gjlay.de>
@@ -110,7 +119,7 @@
 	target/98762 - Handle partial clobber in movqi output.
 
         PR target/98762
-        * config/avr/avr.cc (avr_out_movqi_r_mr_reg_disp_tiny): Properly
+        * config/avr/avr.c (avr_out_movqi_r_mr_reg_disp_tiny): Properly
         restore the base register when it is partially clobbered.
         * testsuite/gcc.target/avr/torture/pr98762.c: New test.
 
@@ -125,7 +134,7 @@
         * config/avr/avr.md (mov<mode>) [avr_mem_memx_p]: Expand in such a
         way that the destination does not overlap with any hard register
         clobbered / used by xload8qi_A resp. xload<mode>_A.
-        * config/avr/avr.cc (avr_out_xload): Avoid early-clobber
+        * config/avr/avr.c (avr_out_xload): Avoid early-clobber
         situation for Z by executing just one load when the output register
         overlaps with Z.
         * testsuite/gcc.target/avr/torture/pr88236-pr115726.c: New test.
@@ -253,7 +262,7 @@ libgcc/
 	an addition (2).  With this pattern it costs 4.
 
         * config/avr/avr.md (*addhi3_zero_extend.ashift1): New pattern.
-        * config/avr/avr.cc (avr_rtx_costs_1) [PLUS]: Compute its cost.
+        * config/avr/avr.c (avr_rtx_costs_1) [PLUS]: Compute its cost.
 
 2024-02-29  Georg-Johann Lay  <avr@gjlay.de>
 
@@ -343,11 +352,11 @@ libgcc/
 
 	PR target/107201
 	* config/avr/avr.h (EXTRA_SPEC_FUNCTIONS): Add no-devlib, avr_no_devlib.
-	* config/avr/driver-avr.cc (avr_no_devlib): New function.
+	* config/avr/driver-avr.c (avr_no_devlib): New function.
 	(avr_devicespecs_file): Use it to remove -nodevicelib from the
 	options for cores only.
 	* config/avr/avr-arch.h (avr_get_parch): New prototype.
-	* config/avr/avr-devices.cc (avr_get_parch): New function.
+	* config/avr/avr-devices.c (avr_get_parch): New function.
 
 2024-02-19  Backport from ae193f9008e02683e27f3c87f3b06f38e103b1d0
 
