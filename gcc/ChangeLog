@@ -1,3 +1,14 @@
+2024-11-23  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from ee8e6784876aa050d2e01f54d1da4acf758b635a
+	AVR: target/117744 - Fix asm for partial clobber of address reg.
+
+	PR target/117744
+	* config/avr/avr.c (out_movqi_r_mr): Fix code when a load
+	only partially clobbers an address register due to
+	changing the address register temporally to accommodate for
+	faked addressing modes.
+
 2024-11-19  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from bba27015f2815a8fa6fae46a29a70644e868341c

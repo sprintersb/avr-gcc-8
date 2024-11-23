@@ -53,8 +53,12 @@ message rather than running into an "internal compiler error"
 when an inline assembly `%i` operand gets an address that's not
 a suitable I/O location (fixed in v13.4, and v14.3+).
 
-* [PR117659](https://gcc.gnu.org/PR117659): Fix a wrong code
-bug for `int24 << 16` (fixed in v13.4, and v14.3+).
+* [PR117659](https://gcc.gnu.org/PR117659): Wrong code
+for `int24 << 16` (fixed in v12.5, v13.4, and v14.3+).
+
+* [PR117744](https://gcc.gnu.org/PR117744): Wrong code
+when a load only partially clobbers an address register
+(fixed in v12.5, v13.4, and v14.3+).
 
 
 ### Extensions
