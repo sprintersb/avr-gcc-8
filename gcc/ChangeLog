@@ -1,3 +1,18 @@
+2024-12-05  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from f7b5527d1b48b33d8ab633c1e9dcb9883667492a
+	AVR: target/64242 - Copy FP to a local reg in nonlocal_goto.
+
+	In nonlocal_goto sets, change hard_frame_pointer_rtx only after
+	emit_stack_restore() restored SP.  This is needed because SP
+	my be stored in some frame location.
+
+        PR target/64242
+        * config/avr/avr.md (nonlocal_goto): Don't restore
+        hard_frame_pointer_rtx directly, but copy it to local
+        register, and only set hard_frame_pointer_rtx from it
+        after emit_stack_restore().
+
 2024-11-23  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from ee8e6784876aa050d2e01f54d1da4acf758b635a

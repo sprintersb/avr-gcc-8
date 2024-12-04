@@ -60,6 +60,9 @@ for `int24 << 16` (fixed in v12.5, v13.4, and v14.3+).
 when a load only partially clobbers an address register
 (fixed in v12.5, v13.4, and v14.3+).
 
+* [PR64242](https://gcc.gnu.org/PR64242#c42): Wrong code
+for nonlocal goto / longjmp (fixed in v12.5, v13.4, and v14.3+).
+
 
 ### Extensions
 
