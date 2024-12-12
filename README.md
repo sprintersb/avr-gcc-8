@@ -93,6 +93,11 @@ For a detailed description with further reading, see the
 The GCC v8 release avoids some problems of more recent compiler versions,
 namely the following performance regressions from the register allocator:
 
+* [PR118012](https://gcc.gnu.org/PR118012): Expensive code
+(bit extract + extend + neg + and) instead of `sbrc`/`sbrs`.
+This issue was introduced with [v13](https://gcc.gnu.org/r13-4459) and
+won't be fixed prior to v16 (release spring 2026).
+
 * [PR110093](https://gcc.gnu.org/PR110093): Move frenzy leading to code bloat.
 
 * [PR114243](https://gcc.gnu.org/PR114243): `-fsplit-wide-types` bloats
