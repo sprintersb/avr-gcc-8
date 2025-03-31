@@ -1,3 +1,17 @@
+2026-03-20  Richard Biener <rguenther@suse.de>
+
+	Backport from 31e6033ba8324737ab3acaf909533c64fe43d55e
+	tree-optimization/119532 - ICE with fixed-point tail recursion
+
+	The following disables tail recursion optimization when fixed-point
+	types are involved as we cannot generate -1 for all fixed-point
+	types.
+
+	PR tree-optimization/119532
+	* tree-tailcall.cc (process_assignment): FAIL for fixed-point
+	typed functions.
+	* gcc.dg/torture/pr119532.c: New testcase.
+
 2026-03-05  Andrew Pinski <andrew.pinski@oss.qualcomm.com>
 
 	Backport from 4ef3d71a08aa167a5b73bc073cdfb1a6784e5de7

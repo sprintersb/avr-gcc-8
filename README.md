@@ -77,6 +77,9 @@ of the AVR devices (fixed in v13.5, v14.4, and v15.3+).
 hang with fixed-point arithmetic in find_widening_optab_handler_and_mode,
 at optabs-query.cc:498 (fixed in v16+).
 
+* [PR119532](https://gcc.gnu.org/PR119532): Fix an internal compiler error
+with fixed-point arithmetic in tail-calls (fixed in v13.5+ and v14.4+).
+
 ### Extensions
 
 * Support all devices that avr-gcc v14 supports.
