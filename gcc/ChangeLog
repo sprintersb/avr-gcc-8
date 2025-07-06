@@ -1,3 +1,13 @@
+2025-07-07  Georg-Johann Lay  <avr@gjlay.de>
+
+	Backport from 75e6bf06e9d65e0f35c723c4f660426739121b2e
+	AVR: Add support for AVR32DAxxS, AVR64DAxxS, AVR128DAxxS devices.
+
+        * config/avr/avr-mcus.def (avr32da28s, avr32da32s, avr32da48s)
+        (avr64da28s, avr64da32s, avr64da48s avr64da64s)
+        (avr128da28s, avr128da32s, avr128da48s, avr128da64s): Add devices.
+        * doc/avr-mmcu.texi: Rebuild.
+
 2024-12-05  Georg-Johann Lay  <avr@gjlay.de>
 
 	Backport from f7b5527d1b48b33d8ab633c1e9dcb9883667492a
