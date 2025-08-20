@@ -63,6 +63,9 @@ when a load only partially clobbers an address register
 * [PR64242](https://gcc.gnu.org/PR64242#c42): Wrong code
 for nonlocal goto / longjmp (fixed in v12.5, v13.4, and v14.3+).
 
+* [PR121608](https://gcc.gnu.org/PR121608): Don't link with `--relax` when
+linking with `-r` in relocatable links (fixed in v13.5, v14.4, and v15.3+).
+
 
 ### Extensions
 
