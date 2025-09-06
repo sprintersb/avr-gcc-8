@@ -68,6 +68,10 @@ linking with `-r` in relocatable links (fixed in v13.5, v14.4, and v15.3+).
 
 * [r264451](https://gcc.gnu.org/r264451): Fix and document `-r` option.
 
+* [PR49857](https://gcc.gnu.org/PR49857),
+[PR81540](https://gcc.gnu.org/PR81540): Disable tree-switch-conversion per
+default since the lookup tables it creates are located in RAM for most
+of the AVR devices (fixed in v13.5, v14.4, and v15.3+).
 
 ### Extensions
 

@@ -27,6 +27,13 @@
 /* Implement TARGET_OPTION_OPTIMIZATION_TABLE.  */
 static const struct default_options avr_option_optimization_table[] =
   {
+    // The lookup table from tree-swicth-conversion.c lives in .rodata
+    // and hence consumes RAM on almost all devices.  As PR49857 has
+    // been rejected several times for non-technical reasons, just
+    // disable -ftree-switch-conversion by default.  But even with PR49857
+    // in place there remains PR81540, which cannot be filtered out since
+    // the pass has no way to hook in.
+    { OPT_LEVELS_ALL, OPT_ftree_switch_conversion, NULL, 0 },
     // With -fdelete-null-pointer-checks option, the compiler assumes
     // that dereferencing of a null pointer would halt the program.
     // For AVR this assumption is not true and a program can safely
