@@ -73,6 +73,10 @@ linking with `-r` in relocatable links (fixed in v13.5, v14.4, and v15.3+).
 default since the lookup tables it creates are located in RAM for most
 of the AVR devices (fixed in v13.5, v14.4, and v15.3+).
 
+* [PR119568](https://gcc.gnu.org/PR119568): Fix an internal compiler error /
+hang with fixed-point arithmetic in find_widening_optab_handler_and_mode,
+at optabs-query.cc:498 (fixed in v16+).
+
 ### Extensions
 
 * Support all devices that avr-gcc v14 supports.

@@ -1,3 +1,21 @@
+2026-03-05  Andrew Pinski <andrew.pinski@oss.qualcomm.com>
+
+	Backport from 4ef3d71a08aa167a5b73bc073cdfb1a6784e5de7
+	widen mult: Fix handling of _Fract mixed with _Fract [PR119568]
+
+	The problem here is we try calling find_widening_optab_handler_and_mode
+	with to_mode=E_USAmode and from_mode=E_UHQmode. This causes an ICE
+	(with checking only).  The fix is to reject the case where the mode
+	classes are different in convert_plusminus_to_widen before even
+	trying to deal with the modes.
+
+	Bootstrapped and tested on x86_64-linux-gnu.
+
+	PR tree-optimization/119568
+
+	* tree-ssa-math-opts.cc (convert_plusminus_to_widen): Reject different
+	mode classes.
+
 2025-09-15  Georg-Johann Lay  <avr@gjlay.de>
 
 	AVR: Align device support with v14 (again).
