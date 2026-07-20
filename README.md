@@ -26,9 +26,7 @@ This is fixed in v14 for address-spaces but still persists
 for PROGMEM.  The local fix just disables the bogus IPA optimization.
 
 * [PR101188](https://gcc.gnu.org/PR101188): A rare wrong-code bug that
-can be tracket back to GCC v5 and beyond.  It's fixed in v14 but
-not in v13.2, and it is unclear if the fix will be back-ported to the
-v13 branch.
+can be tracket back to GCC v5 and beyond.  It's fixed in v14+ and v13.5.
 
 * [PR107201](https://gcc.gnu.org/PR107201): The `-nodevicelib` option
 did not work as expected for devices which start with "AVR", like AVR32DA32.
