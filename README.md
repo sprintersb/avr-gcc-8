@@ -121,3 +121,10 @@ though that option cannot be recommended in general.
 
 * [PR90706](https://gcc.gnu.org/PR90706): Useless code generated for
 stack / register operations (partially fixed in v12.3+).
+
+### Unresolved
+
+* [PR125290](https://gcc.gnu.org/PR125290): This has been fixed and
+backported to v16.2.  The fix is a partial revert of change
+[r8-546](https://gcc.gnu.org/r8-546) that was introduced in GCC v8.
+It is unclear whether this PR affects AVR.
